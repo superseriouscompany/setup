@@ -10,6 +10,12 @@
 * automated dns and service discovery
 * run dockerized apps
 
+## Requirements
+
+Terraform
+
+    $ brew install terraform
+
 ## Installation
 
 ```bash
@@ -20,37 +26,37 @@ $ ./install
 ## First time setup
 
 ```bash
-    $ cd /path/to/app
-    $ sss deploy
+$ cd /path/to/app
+$ sss deploy
 ```
 
 ## Deploy
 
 ```bash
-    $ sss deploy
+$ sss deploy
 ```
 
 ## Monitor
 
 ```bash
-    $ sss monitor
+$ sss monitor
 ```
 
 ## Load Kibana Logs
 
 ```bash
-    $ sss logs
+$ sss logs
 ```
 
 ## Slack integration for mobile deploys
 
 
 ```bash
-    $ sss slack
+$ sss slack
 ```
 
 ## Teardown
 
 ```bash
-    $ sss teardown
+$ sss teardown
 ```
