@@ -1,1 +1,16 @@
-echo "great"
+#!/bin/bash
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}/" )" && pwd )
+case $1 in
+  install)
+    ln -s ${DIR}/sss /usr/local/bin/sss
+    ;;
+  deploy)
+    echo "Creating image..."
+    (cd ${DIR}/packer; packer build -var-file=./vars.json -machine-readable nginx.json | awk -F, '$0 ~/artifact,0,id/ {print $6}' > latest.artifact)
+    echo "Image created."
+    ;;
+  *)
+    echo "Unrecognized command $1. Check out https://github.com/superseriouscompany/setup for docs."
+    ;;
+esac

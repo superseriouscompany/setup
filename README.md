@@ -12,7 +12,11 @@
 
 ## Requirements
 
-Terraform
+Packer https://www.packer.io
+
+    $ brew install packer
+
+Terraform https://www.terraform.io
 
     $ brew install terraform
 

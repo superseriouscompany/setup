@@ -10,6 +10,6 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}/" )" && pwd )
 # Assert that installation puts sss in an executable path
 which sss &> /dev/null && rm /usr/local/bin/sss &> /dev/null
 assert "which sss"
-${DIR}/../install
+${DIR}/../sss install
 assert "which sss" "/usr/local/bin/sss"
 assert_end installation

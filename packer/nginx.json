@@ -1,0 +1,49 @@
+{
+  "builders": [
+    {
+      "type":         "googlecompute",
+      "project_id":   "{{user `gcp_project`}}",
+      "zone":         "{{user `gcp_zone`}}",
+      "account_file": "../gcp.json",
+      "source_image": "ubuntu-1604-xenial-v20161115",
+      "ssh_username": "ubuntu"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 30",
+        "sudo apt-get update"
+      ]
+    },
+    {
+      "type":   "shell",
+      "script": "./setup_nodejs.sh"
+    },
+    {
+      "type":   "shell",
+      "script": "./setup_golang.sh"
+    },
+    {
+      "type":   "shell",
+      "script": "./setup_nginx.sh"
+    },
+    {
+      "type":   "shell",
+      "script": "./setup_docker.sh"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo docker pull prom/node-exporter"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo systemctl restart nginx"
+      ]
+    }
+  ]
+}
